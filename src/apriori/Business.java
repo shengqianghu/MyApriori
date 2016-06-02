@@ -8,7 +8,12 @@ import java.util.Set;
  */
 public class Business {
 	Set<Node> business;
-
+	public Business(){
+		
+	}
+	public Business(Set<Node> business){
+		this.business = business;
+	}
 	public Set<Node> getBusiness() {
 
 		return business;
@@ -17,5 +22,13 @@ public class Business {
 	public void setBusiness(Set<Node> business) {
 		this.business = business;
 	}
-
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String result = "";
+		for(Node node:business)
+			result += node.toString() + ",";
+		return result;
+	}
+	
 }

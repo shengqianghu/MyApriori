@@ -29,5 +29,24 @@ public class Item {
 	public void setSupport(double support) {
 		this.support = support;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String result = "";
+		for(Node node:itme)
+			result += node.toString();
+		return result;
+	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return itme.hashCode();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		Item item = (Item) obj;
+		return toString().equals(item.toString());
+	}
 	
 }

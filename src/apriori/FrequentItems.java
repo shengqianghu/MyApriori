@@ -29,7 +29,8 @@ public class FrequentItems {
 	public CandidateItems productNextCandidateItems() {
 		CandidateItems candidateItems = new CandidateItems(decimal + 1);
 		Set<Item> items = new HashSet<Item>();
-		Item[] freItems = (Item[]) frequentItems.toArray();
+		Item[] freItems = (Item[]) frequentItems.toArray(new Item[items.size()]);
+		
 		for(int i = 0;i < freItems.length - 1;i++){
 			for(int j = i+1 ;j < freItems.length;j++){
 				Set<Node> union = SetIntersectionCount.countIntersection(freItems[i].getItme(), freItems[j].getItme(), decimal - 1);
@@ -57,5 +58,17 @@ public class FrequentItems {
 
 	public void setDecimal(int decimal) {
 		this.decimal = decimal;
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String result = "";
+		for(Item item:frequentItems){
+			for(Node node:item.getItme()){
+				result += node.toString() + " ";
+			}
+			result += "\n";
+		}
+		return result;
 	}
 }

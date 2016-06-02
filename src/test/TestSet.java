@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import apriori.Business;
+import apriori.Node;
+
 
 
 public class TestSet {
@@ -33,4 +36,14 @@ public class TestSet {
 		System.out.println(stra.containsAll(strb));
 	}
 	
+	
+	@Test
+	public void businessTest(){
+		Set<Node> node1 = new HashSet<Node>();
+		node1.add(new Node("A"));
+		node1.add(new Node("C"));
+		node1.add(new Node("D"));
+		Business b1 = new Business(node1);
+		System.out.println(b1.toString());
+	}
 }

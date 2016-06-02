@@ -7,16 +7,11 @@ import java.util.Set;
 import exception.RecordCountIsZeroException;
 
 public class DataBase {
-	private Set<Business> businesses;
+	public static Set<Business> businesses;
 
-	private int recordCount;
+	public static int recordCount;
 
 	public DataBase() {
-
-	}
-
-	public DataBase(Set<Business> businesses) {
-		this.businesses = businesses;
 		recordCount = businesses == null ? 0 : businesses.size();
 	}
 
@@ -50,8 +45,8 @@ public class DataBase {
 	 *         3：在所有的记录中，item存在于多少个记录中，算出支持率
 	 * @throws Exception
 	 */
-	public double getItemSupport(Item item) throws RecordCountIsZeroException {
-		int count = 0;
+	public void getItemSupport(Item item) throws RecordCountIsZeroException {
+		double count = 0;
 		double supportRate = 0;
 		Iterator<Business> iterator = businesses.iterator();
 		while (iterator.hasNext()) {
@@ -63,23 +58,7 @@ public class DataBase {
 			throw new RecordCountIsZeroException();
 		}
 		supportRate = count / recordCount;
-		return supportRate;
-	}
-
-	public Set<Business> getBusinesses() {
-		return businesses;
-	}
-
-	public void setBusinesses(Set<Business> businesses) {
-		this.businesses = businesses;
-	}
-
-	public int getRecordCount() {
-		return recordCount;
-	}
-
-	public void setRecordCount(int recordCount) {
-		this.recordCount = recordCount;
+		item.setSupport(supportRate);
 	}
 
 }
