@@ -1,18 +1,26 @@
 package apriori;
 
-import java.util.List;
+
+import java.util.Set;
 
 /**
  * @author HSQ
  * 
  */
 public class Item {
-	private List<Node> itme;
+	private Set<Node> itme;
 	private double support;
-	public List<Node> getItme() {
+	public Item(){
+		
+	}
+	public Item(Set<Node> item){
+		this.itme = item;
+	}
+	
+	public Set<Node> getItme() {
 		return itme;
 	}
-	public void setItme(List<Node> itme) {
+	public void setItme(Set<Node> itme) {
 		this.itme = itme;
 	}
 	public double getSupport() {

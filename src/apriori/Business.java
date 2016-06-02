@@ -1,20 +1,21 @@
 package apriori;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author HSQ
  *
  */
 public class Business {
-	List<Node> business;
+	Set<Node> business;
 
-	public List<Node> getBusiness() {
+	public Set<Node> getBusiness() {
+
 		return business;
 	}
 
-	public void setBusiness(List<Node> business) {
+	public void setBusiness(Set<Node> business) {
 		this.business = business;
 	}
-	
+
 }
